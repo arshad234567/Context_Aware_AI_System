@@ -1,18 +1,24 @@
 from chonkie import SemanticChunker
 
-from doc_reader_utils  import get_document
+from doc_reader_utils import get_documents
 
+# Basic initialization with default parameters
 chunker = SemanticChunker(
-    embedding_model="minishlab/potion-base-32M",  # Default model
-    threshold=0.8,                               # Similarity threshold (0-1)
-    chunk_size=2048,                             # Maximum tokens per chunk
-    similarity_window=3,                         # Window for similarity calculation
-    skip_window=0                                # Skip-and-merge window (0=disabled)
+    embedding_model="minishlab/potion-base-8M",  # Default model
+    threshold=0.5,                               # Similarity threshold (0-1) or (1-100) or "auto"
+    chunk_size=512,                              # Maximum tokens per chunk
+    min_sentences_per_chunk=1,                             # Initial sentences per chunk
+    similarity_window=10,                        # Number of sentences to consider for similarity threshold calculation
 )
 
-chunker = SemanticChunker(
-    embedding_model="minishlab/potion-base-32M",
-    threshold=0.7,
-    chunk_size=2048,
-    skip_window=1  # Enable merging of similar non-consecutive groups
-)
+docs = get_documents()
+
+for doc in docs:
+    chunks = chunker.chunk(doc.text)
+
+    for chunk in chunks:
+        print(f"Chunk text: {chunk.text}")
+        print(f"Token count: {chunk.token_count}")
+        print(f"Start index: {chunk.start_index}")
+        print(f"End index: {chunk.end_index}")
+        print("="*100)

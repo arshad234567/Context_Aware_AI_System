@@ -6,3 +6,4 @@ def get_documents() -> List[Document]:
     docs: List[Document] = SimpleDirectoryReader(input_files=["../data/Understanding_Climate_Change.pdf"]).load_data(show_progress=True)
 
     return docs
+
