@@ -1,12 +1,11 @@
 from chonkie import SentenceChunker
 from doc_reader_utils import get_documents
 
-# Basic initialization with default parameters
 chunker = SentenceChunker(
-    tokenizer_or_token_counter="gpt2",  # Supports string identifiers
-    chunk_size=128,    # Maximum tokens per chunk, experiment with [128, 512, 1024, 2048]
-    chunk_overlap=30,  # Overlap between chunks
-    min_sentences_per_chunk=1, # Minimum number of sentences per chunk
+    tokenizer_or_token_counter="gpt2",
+    chunk_size=128,
+    chunk_overlap=30,
+    min_sentences_per_chunk=1,
 )
 
 docs = get_documents()
