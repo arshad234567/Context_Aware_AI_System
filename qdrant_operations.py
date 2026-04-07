@@ -1,7 +1,6 @@
 from qdrant_client import QdrantClient
 from dotenv import load_dotenv
 import os
-
 from chonkie import Pipeline
 
 load_dotenv()
