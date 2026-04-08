@@ -33,15 +33,7 @@ def load_document():
 documents = load_document()
 
 client = qdrant_client.QdrantClient(
-    # you can use :memory: mode for fast and light-weight experiments,
-    # it does not require to have Qdrant deployed anywhere
-    # but requires qdrant-client >= 1.1.1
-    # location=":memory:"
-    # otherwise set Qdrant instance address with:
-    # host="localhost"
-    # otherwise set Qdrant instance with host and port:
     url="http://localhost:6333",
-    # set API KEY for Qdrant Cloud
     api_key="QDRANT_API_KEY",
 )
 
