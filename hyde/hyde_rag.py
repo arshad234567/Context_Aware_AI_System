@@ -42,7 +42,7 @@ client = qdrant_client.QdrantClient(
     # otherwise set Qdrant instance with host and port:
     url="http://localhost:6333",
     # set API KEY for Qdrant Cloud
-    api_key="th3s3cr3tk3y",
+    api_key="QDRANT_API_KEY",
 )
 
 vector_store = QdrantVectorStore(client=client, collection_name="hyde_collection")
