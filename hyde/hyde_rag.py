@@ -26,7 +26,6 @@ Settings.chunk_size = 128
 Settings.chunk_overlap = 30
 
 def load_document():
-    # load documents
     _documents = SimpleDirectoryReader(input_dir="../data", required_exts=[".pdf"]).load_data()
     return _documents
 
